@@ -9,12 +9,12 @@ import (
 // padded by the character padding
 func PadLeft(src, padding string, length int) (string, error) {
 
-	if length < len(src) {
-		return "", errors.New("Target length is less than the length of the" +
-			"original string.")
+	if length <= len(src) {
+		return "", errors.New("Target length must be greater than the length" +
+			" of the original string.")
 	}
 
-	if len(padding) > 1 {
+	if len(padding) != 1 {
 		return "", errors.New("Padding must be a single character.")
 	}
 

@@ -26,3 +26,24 @@ func TestPadLeft(t *testing.T) {
 		t.Errorf("Expected %s, got %s", expected, result)
 	}
 }
+
+func TestBadTargetLength(t *testing.T) {
+	padLengths := [3]int{3, 2, 1}
+	for _, length := range padLengths {
+		_, err := PadLeft("src", "*", length)
+		if err == nil {
+			t.Error("Expected length error, got nil")
+		}
+	}
+}
+
+func TestBadPaddingChar(t *testing.T) {
+	padChars := [3]string{"", "aa", "  "}
+
+	for _, pchar := range padChars {
+		_, err := PadLeft("src", pchar, 10)
+		if err == nil {
+			t.Error("Expected padding char error, got nil")
+		}
+	}
+}
