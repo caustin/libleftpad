@@ -6,7 +6,10 @@ func TestLength(t *testing.T) {
 	expected := "*********I"
 	expectedLen := len(expected)
 
-	res := PadLeft("I", "*", 10)
+	res, err := PadLeft("I", "*", 10)
+	if err != nil {
+		t.Error("Unexpected error", err)
+	}
 	if len(res) != len(res) {
 		t.Errorf("Expected %d, got %d", expectedLen, len(res))
 	}
@@ -15,7 +18,10 @@ func TestLength(t *testing.T) {
 func TestPadLeft(t *testing.T) {
 	expected := "*********I"
 
-	result := PadLeft("I", "*", 10)
+	result, err := PadLeft("I", "*", 10)
+	if err != nil {
+		t.Error("Unexpected error", err)
+	}
 	if result != expected {
 		t.Errorf("Expected %s, got %s", expected, result)
 	}
