@@ -8,7 +8,7 @@ func TestLength(t *testing.T) {
 
 	res := PadLeft("I", "*", 10)
 	if len(res) != len(res) {
-		t.Errorf("Expecyed %d, got %d", expectedLen, len(res))
+		t.Errorf("Expected %d, got %d", expectedLen, len(res))
 	}
 }
 
