@@ -11,7 +11,7 @@ func PadLeft(src, padding string, length int) (string, error) {
 
 	if length < len(src) {
 		return "", errors.New("Target length is less than the length of the" +
-			"origional string.")
+			"original string.")
 	}
 
 	if len(padding) > 1 {
